@@ -43,9 +43,11 @@ int main()
     uc = 5;
     printf("[char and unsigned char -5 > 5] : %d\n\n", c > uc);
 
-    c = s = SHRT_MAX;
-    uc = s;
-    printf("[SHRT_MAX] : c = %d, uc = %d, s = %d\n", c, uc, s);
+    // printf("[TEST] c = %d, s = %d, SHRT_MAX=%d, uc = %d", c, sizeof(s), SHRT_MAX, uc);
+
+    // c = s = SHRT_MAX;
+    // uc = s;
+    // printf("[SHRT_MAX] : c = %d, uc = %d, s = %d\n", c, uc, s); // error, conversion from short int to char (diap: -32768 : 32767) :(
 
     s++;
     printf("[SHRT_MAX++] : s = %d\n", s);
