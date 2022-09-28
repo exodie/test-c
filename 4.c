@@ -1,69 +1,70 @@
-// 1 var.
+// 14 var.
+
+/*
+*    Написать 9 программ согласно номеру индивидуального варианта.
+    В первой программе вычислить значение функции, используя условную
+    операцию «?:».
+
+*    Во второй программе вычислить значение по указанной формуле, исполь-
+    зуя функции математической библиотеки. Перед написанием программы требу-
+    ется вычислить область определения функции (ООФ), в программе после ввода
+
+*    аргументов проверить их принадлежность ООФ.
+    В третьей программе использовать вложенный условный оператор.
+
+*    В четвертой программе смоделировать арифметический цикл с помощью
+    оператора цикла for.
+
+*    В пятой и шестой программах использовать циклы while или do ... while.
+
+*    В седьмой и восьмой программах вычислить бесконечную сумму с задан-
+    ной точностью, используя рекуррентные зависимости.
+
+*   В девятой программе использовать конструкцию «цикл в цикле».
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h> // for use math fc
-
-void F(int x, int y); // type void потому что я ничего не возвращаю (можно конечно возвращать числа, но в падлу)
-
-void F(int x, int y)
-{
-
-
-    if (x > 0)
-    {
-        x += y;
-        printf("x > 0 => x = %d\n", x);
-    }
-    else if (x <= 0)
-    {
-        //! can`t use printf (x *= y)
-        (y < 0) ? x *= y : printf("Error: y > 0");
-
-        printf("x <= 0 && y < 0 => x = %d\n", x);
-    }
-    else
-    {
-        printf("None of the conditions were met => x = %d\n", x *= 5);
-    };
-}
+#include <math.h>
 
 #define _USE_MATH_DEFINES
 
-void Z(int x);
-
-void Z(int x)
+// Задание номер 1
+void F_1(int m, int n)
 {
+    int x; // так проще
 
-    
-    int z;
-    double _x = log1p(sqrt(abs(x))) / tan(pow(2.71828182845904523536, -x));
+    printf("m = %d\t", m);
+    printf("n = %d\n", n);
 
-    z = (x * x) - cos(_x);
+    if (n > -5 && m != 0) {
+        x = (5 / m) - (n / 5);
+        printf("(5 / m) - (n / 5) => x = %d", x);
+    } else if (n <= -5) {
+        x = 3 * m + pow(n, 2);
+        printf("3 * m + n^2 => x = %d", x);
+    } else {
+        x = 2 * m * n;
+        printf("2 * m * n => x = %d", x);
+    }
+}
 
-    // test print`s
-    printf("%d\n", z);
-    printf("%lf\n", cos(_x));
-    printf("%lf\n", _x);
+void S_FC(double a, double b) {
+    double s = (sin(pow(a, 3)) + 2 * pow(cos(b), 2)) / (sqrt(2.5 * a + 3 * b + sqrt(2) * log(b)));
+    printf("%d", s);
 }
 
 int main()
 {
-    /* example #1
-        int x, y;
+    int first_p, second_p;
+    double first_p_d, second_p_d;
 
-        scanf("%d", &x);
-        scanf("%d", &y);
-        printf("Input data: x = %d, y = %d\n", x, y);
+    printf("Input your data: ");
+    // scanf("%d%d", &first_p, &second_p);
+    scanf("%lf%lf", &first_p_d, &second_p_d);
 
-        F(x, y);
-    */
-
-    /* example #2
-       Z(15);
-    */
-
-    // printf("%d", sqrt(-1));
+    // F_1(first_p, second_p);
+    S_FC(first_p_d, second_p_d);
 
     return 0;
 }
