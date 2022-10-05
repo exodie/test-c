@@ -53,12 +53,15 @@ int main()
 
     *m = (float)*a - n + (int)*x;
 
-    //     char *p, c;
-    // int *a, b;
-    // float *x, y = 3.5;
-    // double *m, n;
+    printf("TRUE\n");
 
     // ? Значений всех переменных, value / types?
+    // printf("All values: [*a = %d\tb = %d\t*x = %f\ty = %f\t*m = %lf\tn = %lf]\n", *a, b, *x, y, *m, n);
+    printf("*a = %d\tb = %d\n", *a, b);
+    printf("*x = %f\ty = %f\n", *x, y);
+    // ! *m not output`ing...
+    printf("n = %lf\n", n);
+    printf("*m = %lf\n", &*m); // right?
 
     system("pause");
     return 0;
