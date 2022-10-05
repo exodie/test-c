@@ -61,7 +61,7 @@ int main()
     printf("*x = %f\ty = %f\n", *x, y);
     // ! *m not output`ing...
     printf("n = %lf\n", n);
-    printf("*m = %lf\n", &*m); // right?
+    printf("*m = %lf\n", &*m); // ?
 
     system("pause");
     return 0;
