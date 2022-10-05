@@ -65,11 +65,11 @@ void S_fc(double a, double b)
 */
 int four_fc()
 {
-    int x;
+    int x, a, b;
 
-    for (int a = 1; a <= 99; a++)
+    for (a = 1; a <= 99; a++)
     {
-        for (int b = 1; b <= 99; b++)
+        for (b = 1; b <= 99; b++)
         {
             x = 2 * (a + b);
 
@@ -95,19 +95,46 @@ void six_fc(int x)
     printf("%d", y);
 }
 
+/*
+ * i - произведение сомножителей
+ * j - сумма дробей i
+ */
+void nine_fc()
+{
+    double p = 1,
+           total;
+
+    int i, j;
+
+    for (i = 1; i <= 10; i++)
+    {
+        total = 0;
+
+        for (j = 1; j <= 20; j++)
+        {
+            total += 1 / (i + pow(j, 2));
+        }
+
+        p *= total;
+    }
+
+    printf("now p = %lf", p);
+}
+
 int main()
 {
     int first_p, second_p, three_p;
     double first_p_d, second_p_d;
 
     printf("Input your data: ");
-    // scanf("%d%d%d", &first_p, &second_p, &three_p);
+    scanf("%d%d%d", &first_p, &second_p, &three_p);
     // scanf("%lf%lf", &first_p_d, &second_p_d);
 
     // F_fc(first_p, second_p);
     // S_fc(first_p_d, second_p_d);
     // four_fc();
-    // six_fc(first_p);
+    six_fc(first_p);
+    // nine_fc();
 
     return 0;
 }
