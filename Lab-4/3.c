@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
 
 #define L 6
 #define M 7
@@ -9,7 +8,7 @@ int main()
 {
     int arr[L][M];
     int i, j, h, state;
-
+    
     // Заполнение матрицы случайными числами от 0 до 10.
     for (i = 0; i < L; i++) {
         for (j = 0; j < M; j++) {
