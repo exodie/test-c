@@ -54,10 +54,6 @@ void S_fc(double a, double b)
     printf("%lf\n", s);
 }
 
-// void three_fc(int black, int white) {
-//     printf("x = %d", x);
-// }
-
 /*
     Value: 36
     Value: 44
@@ -112,7 +108,7 @@ void nine_fc()
 
         for (j = 1; j <= 20; j++)
         {
-            total += 1 / (i + pow(j, 2));
+            total += 1 / (i + j * j);
         }
 
         p *= total;
@@ -127,11 +123,11 @@ int main()
     double first_p_d, second_p_d;
 
     printf("Input your data: ");
-    scanf("%d%d%d", &first_p, &second_p, &three_p);
-    // scanf("%lf%lf", &first_p_d, &second_p_d);
+    // scanf("%d%d%d", &first_p, &second_p, &three_p);
+    scanf("%lf%lf", &first_p_d, &second_p_d);
 
     // F_fc(first_p, second_p);
-    // S_fc(first_p_d, second_p_d);
+    S_fc(first_p_d, second_p_d);
     // four_fc();
     six_fc(first_p);
     // nine_fc();

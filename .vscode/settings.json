@@ -2,6 +2,8 @@
     "files.associations": {
         "math.h": "c",
         "corecrt_math_defines.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "iostream": "c"
     },
+    "C_Cpp.errorSquiggles": "disabled",
 }
