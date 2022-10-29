@@ -4,26 +4,42 @@
 
 #define _USE_MATH_DEFINES
 
-int main()
+void f(int m, int n)
 {
-    int m, n, x;
-    scanf("%d%d", &m, &n);
+    int x;
 
-    if (n > -5 && m != 0)
+    printf("f(%d, %d)\n", m, n);
+
+    if (n >= 0 && m > 0)
     {
-        x = (5 / m) - (n / 5);
-        printf("(5 / m) - (n / 5) => x = %d", x);
-    }
-    else if (n <= -5)
-    {
-        x = 3 * m + pow(n, 2);
-        printf("3 * m + n^2 => x = %d", x);
+        if (n != 3 && m <= 3)
+        {
+            x = ((2 * m) / (n - 3));
+            printf("X = %d", x);
+        }
+
+        if (m > 3)
+        {
+            x = (sqrt(m - 3) - n);
+            printf("[M > 3] X = %d", x);
+        }
     }
     else
     {
-        x = 2 * m * n;
-        printf("2 * m * n => x = %d", x);
+        printf("Error: X = %d", m + n);
     }
+}
+
+int main()
+{
+    int m, n;
+
+    printf("Input M: ");
+    scanf("%d", &m);
+    printf("Input N: ");
+    scanf("%d", &n);
+
+    f(m, n);
 
     return 0;
 }

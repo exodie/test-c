@@ -4,14 +4,16 @@
 
 #define _USE_MATH_DEFINES
 
-int main()
+void main()
 {
-    double a, b;
+    int K, a, b;
 
-    scanf("%lf", &a, &b);
+    printf("Input a: ");
+    scanf("%d", &a);
 
-    double s = (sin(pow(a, 3)) + 2 * pow(cos(b), 2)) / (sqrt(2.5 * a + 3 * b + sqrt(2) * log(b)));
-    printf("%lf\n", s);
+    printf("Input b: ");
+    scanf("%d", &b);
 
-    return 0;
+    K = (((2 * exp(a)) / (3 * pow(b, 2) * sqrt(b))) * ((pow(cos(a / (2 * b + 1)), 2))) / (1 + (1 / log(a + b))));
+    printf("%d", K);
 }

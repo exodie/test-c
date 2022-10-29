@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-#define _USE_MATH_DEFINES
-
-int main()
+void main()
 {
     int x, y = 0;
 
+    printf("Input x: ");
     scanf("%d", &x);
 
     while (x != 0)
@@ -17,6 +15,4 @@ int main()
     }
 
     printf("%d", y);
-
-    return 0;
 }

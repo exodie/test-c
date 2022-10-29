@@ -21,25 +21,26 @@ void main()
                 printf("A[%d][%d] = ", i + 1, j);
                 scanf("%d", &arr[j]);
 
-                if (j == y - 1) break;
+                if (j == y - 1)
+                    break;
             }
         }
     }
 
     for (i = 0; i < x; i++)
     {
-        for (j = i + 1; j < y; j++)
+        for (j = 0; j < y; j++)
         {
-            printf(" %i ? %i", &arr[i][j], &arr[j][i]);
-            // if (arr[j][i] == arr[i][j])
-            // {
-            //     printf("sum+1");
-            //     sum++;
-            // }
-            // else
-            // {
-            //     printf("Matrix are not symmetrical\n");
-            // }
+            printf("%d", arr[i * x + j]);
+            if (arr[j][i] == arr[i][j])
+            {
+                printf("sum+1");
+                sum++;
+            }
+            else
+            {
+                printf("Matrix are not symmetrical\n");
+            }
         }
     }
 
