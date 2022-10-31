@@ -1,29 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-
-#define _USE_MATH_DEFINES
 
 int main()
 {
-    double p = 1,
-           total;
+    /**
+     * s - Общее S
+     * i - Первый цикл (Прохожусь по степеням n^sl)
+     * j - Второй цикл (Присваиваю к степени саму степень)
+     * n - натуральное число
+     * sl - Возводимая степень
+     */
+    int s, i, j, n, sl;
+    scanf("%d", &n);
+    s = 0;
+    sl = 1;
 
-    int i, j;
-
-    for (i = 1; i <= 10; i++)
+    for (i = 1; i <= n; i++)
     {
-        total = 0;
+        sl = i;
 
-        for (j = 1; j <= 20; j++)
+        for (j = 1; j < i; j++)
         {
-            total += 1 / (i + pow(j, 2));
+            sl *= i;
         }
 
-        p *= total;
+        s += sl;
     }
 
-    printf("now p = %lf", p);
-
-    return 0;
+    printf("%d", s);
 }
