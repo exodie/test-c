@@ -9,19 +9,10 @@
 */
 
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>
 
 int main() {
-    /* A(20) */int array[20] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 11, 12, 10, 14, 15, 16, 17, 18, 19 }; // ? scanf array?
-    int i;
+    
 
-    for (i = 0; i < 20 - 1; ++i) {
-        if (array[i + 1] < array[i]) {
-            printf("Non-increasing sequence.");
-            return -1;
-        }
-    }
-
-    printf("Increasing sequence.");
     return 0;
 }
