@@ -1,30 +1,15 @@
-// Вариант #14.
-
 #include <stdlib.h>
 #include <stdio.h>
-#include <malloc.h>
-
-/**
- * Задать диапазон
- * Задать размерность
- * Задать элементы
- * Найти наименьший положительный элемент значение которого принадлежит заданному диапазону и удалить его, сдвинув оставшиеся элементы к началу массива
- * Отрицательное или 0-е знач. Y является некорректным
- * Если нет элементов которые лежат в [X, Y] то вывести сообщение
- * Если будет несколько элементов удовлетворяющих поставленным условиям - удалить первый из них.
- */
 
 int main()
 {
     /**
-     * [rangeX, rangeY]
-     * arr = []
-     * arrEl = []
-     * state = any?:value
+     * [rangeX, rangeY] - [x, y] промежуток
+     * arr = [] - массив
+     * arrEl = [] - кол-во элементов массива
+     * state = any?:value - Переменная для записывания в неё значений
      */
     int rangeX, rangeY, *arr, el, state, stateIdx, oldStateIdx, i, j;
-
-    int *tmp = realloc(arr, (el - 1) * sizeof(int));
 
     // input items
     printf("Input value in arr[el] = ");
@@ -81,7 +66,7 @@ int main()
 
                             for (i = 0; i < el; i++)
                             {
-                                printf("\nArray now: [%d, %d]\n", arr[i], i);
+                                printf("%i\n", arr[i]);
                             }
                         }
                         else
