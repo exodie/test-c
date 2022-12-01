@@ -1,35 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
+int main(void)
+{
+    int i, j, sum = 0;
+    int ar[5] = {11, 1, 2, 3, 22};
+    int ar2[5] = {11, 1, 2, 3, 22};
 
-#define A 30
-#define B 15
-
-int main() {
-    int a[A], b[B], i, j, state;
-
-    printf("A[30] =");
-    for (i = 0; i < A; i++) {
-        a[i] = rand() % 50;
-        printf(" %i", a[i]);
-    }
-
-    printf("\n");
-
-    printf("B[15] =");
-    for (j = 0; j < B; j++) {
-        b[j] = rand() % 50;
-        printf(" %i", b[j]);
-    }
-
-    for (i = 0; i < A; i++) {
-        for (j = 0; j < B; j++) {
-            if (a[i] != b[j]) {
-                state += i;
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            if (ar[i] == ar2[j]) {
+                sum += ar2[j];
             }
         }
     }
 
-    printf("\nState = %d", state / A);
+    printf("%d", sum);
 
     return 0;
 }

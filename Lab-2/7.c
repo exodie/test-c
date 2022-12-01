@@ -1,28 +1,47 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
+#define E 0.00001
 
-#define _USE_MATH_DEFINES
+int fact(int num)
+{
+    if (num <= 1)
+    {
+        return 1;
+    }
+    else
+        return num * fact(num - 1);
+}
 
-int main() {
-    double x, y, eps = 0.00001, f, fraction, factorial; 
-    scanf("%lf", &x);
-
-    fraction = pow(x, 3);
-
-    f = x - fraction;
-
-    factorial = 1;
-
-    for (int i = 5; fraction * fraction >= eps * eps; i++) {
-        factorial *= i;
-        fraction = (pow(-1, i) * pow(x, 2 * i + 1)) / ((2 * i + 1) * factorial);
-        f += fraction;
+int main()
+{
+    int counter = 1, znam;
+    double input, sum = 1, value = 1, del = 1, prover, pi = 3.14; // input - x, counter - n
+    if ((scanf("%lf", &input) == 0) || ((input < 0.1) || (input > 1)))
+    {
+        printf("input error\n");
+        return 1;
     }
 
-    y = sin(x);
+    printf("X:%lf\n", input);
 
-    printf("\ny = %.5lf\nf = %5.lf", y, f);
+    for (double i = E; i < value; counter++)
+    {
+        for (int i = counter; i > 0; i--) // столько раз,нассколько член ряда удален от начала
+        {
+            del = pow(-1, counter) * pow(input, 2) * del;
+        }
+
+        znam = fact(counter * 2);
+        value = (del / znam);
+        sum = value + sum;
+        del = 1;
+    }
+
+    prover = cos(input);
+    printf("Proverka=%lf\n", prover);
+    printf("Summa=%lf\n", sum);
+    printf("num = %d", counter);
 
     return 0;
 }

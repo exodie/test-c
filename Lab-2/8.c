@@ -6,7 +6,7 @@
 
 int main()
 {
-    double x, y, eps = 0.00001, s, fraction;
+    double x, y, eps = 0.00001, s = 0, fraction;
     scanf("%lf", &x);
 
     fraction = (1 / x);

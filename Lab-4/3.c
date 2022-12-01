@@ -28,7 +28,7 @@ int main()
 
     printf("\n\n");
 
-    for (k = 0; k <= S - 1;k++)
+    for (k = 0; k <= S - 1; k++)
     {
         for (i = 0; i <= S - 1; i++)
         {

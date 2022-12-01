@@ -2,18 +2,23 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define _USE_MATH_DEFINES
-
-void main()
+int main()
 {
-    int K, a, b;
+    double s = 0.0;
+    int a, b;
 
-    printf("Input a: ");
     scanf("%d", &a);
-
-    printf("Input b: ");
     scanf("%d", &b);
 
-    K = (((2 * exp(a)) / (3 * pow(b, 2) * sqrt(b))) * ((pow(cos(a / (2 * b + 1)), 2))) / (1 + (1 / log(a + b))));
-    printf("%d", K);
+    if (a <= 0 || b <= 0)
+    {
+        printf("Incorrect value!\n");
+    }
+    else
+    {
+        s = (sin(pow(a, 3)) + 2 * pow(cos(b), 2) / (sqrt((2.5 * a) + (3 * b) + (sqrt(2) * log(b)))));
+        printf("%lf", s);
+    }
+
+    return 0;
 }
