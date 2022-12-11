@@ -18,12 +18,32 @@ int main()
 
     while (fscanf(in, "%d", &x) != EOF)
     {
-        if (x % 2 == 0) {
-            fprintf(in, "\n");
-            fprintf(in, "%d", 2 * x);
-        } else {
-            fprintf(out, "%d\t", x);
+        if (x % 2 == 0)
+        {
+            fprintf(out, "%d ", 2 * x);
         }
+        else
+        {
+            fprintf(out, "%d ", x);
+        }
+    }
+
+    char buffer2[256];
+
+    fclose(out);
+    fclose(in);
+
+    in = fopen("2/input.txt", "w");
+    out = fopen("2/output.txt", "r+");
+    while (!feof(out))
+    {
+        if (fgets(buffer2, sizeof(buffer2), out) != NULL) {
+            fputs(buffer2, in);
+            remove("2/output.txt");
+        } else {
+            printf("false");
+        }
+
     }
 
     return 0;

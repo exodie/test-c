@@ -1,34 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-#define _USE_MATH_DEFINES
+#include <locale.h>
 
 int main()
 {
-    double x, y, eps = 0.00001, s = 0, fraction;
+    setlocale(LC_ALL, "russian");
+    double eps = 0.000001;
+    double pi = 3.1415926;
+    double sum = 0, x, pred, next;
+    int n;
+    printf("Введите значение в пределах: 0.1<=x<=0.8, х=");
     scanf("%lf", &x);
-
-    fraction = (1 / x);
-
-    s = 2 * fraction;
-
-    if (abs(x) > 1)
+    if (x >= 0.1 && x <= 0.8)
     {
-        for (int i = 2; fraction * fraction >= eps * eps; i++)
+        n = 1;
+        pred = x;
+        next = 0;
+
+        while (fabs(pred - next) > eps)
         {
-            printf("1: %lf\n", fraction);
-            fraction = (1 / pow(x + i + 1, i + 1));
-            printf("2: %lf\n", fraction);
-            s += fraction;
+            pred = next;
+            next = pow(x, n) * cos(n * pi / 3.0) / (double)n;
+            sum = sum + next;
+            n++;
         }
-
-        y = log((x + 1) / (x - 1));
-
-        printf("\ny = %.5lf\ns = %5.lf", y, s);
-    } else {
-        printf("error");
+        printf("Сумма ряда равна %.6lf\n", sum);
+        double check = -0.5 * log(1 - 2 * x * cos(pi / 3.0) + x * x);
+        printf(" Проверка функции %.6lf\n", check);
     }
-
+    else
+    {
+        printf("Данное значения не входит в диапозон \n");
+    }
     return 0;
 }

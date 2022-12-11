@@ -6,7 +6,7 @@
 
 int main()
 {
-    int ***arr, m = 3, n = 3, p = 3, i, j, k, state = 0;
+    int ***arr, m = 7, n = 3, p = 3, i, j, k, state = 0;
 
     arr = (int ***)malloc(m * sizeof(int **));
 

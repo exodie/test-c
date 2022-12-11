@@ -6,7 +6,9 @@
 
 void creatBin(FILE *file, int number);
 void printBin(FILE *file);
+
 void changeBin(FILE *file);
+
 int main()
 {
     setlocale(LC_ALL, "Rus");

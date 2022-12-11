@@ -1,0 +1,4 @@
+Wallet: 20002, Name: Alexey Petrov, Type: emergency, Money: 40000, Date: 206122022
+Wallet: 20003, Name: Jojik Berdozhik, Type: NoNemergency, Money: 50000, Date: 206122022
+Wallet: 20004, Name: Andrey Kjoxyh, Type: emergency, Money: 90000, Date: 206122022
+Wallet: 20005, Name: Vlad Mikolov, Type: NoNemergency, Money: 1200000, Date: 206122022
