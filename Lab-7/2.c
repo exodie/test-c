@@ -37,13 +37,15 @@ int main()
     out = fopen("2/output.txt", "r+");
     while (!feof(out))
     {
-        if (fgets(buffer2, sizeof(buffer2), out) != NULL) {
+        if (fgets(buffer2, sizeof(buffer2), out) != NULL)
+        {
             fputs(buffer2, in);
             remove("2/output.txt");
-        } else {
+        }
+        else
+        {
             printf("false");
         }
-
     }
 
     return 0;

@@ -4,7 +4,8 @@
 
 int main()
 {
-    char str[] = "2 + 5 % cos(0.5) / sin(1) + tan(12) % 10 + tan(12) % 10";
+    char str[256];// = "2 + 5 % cos(0.5) / sin(1) + tan(12) % 10 + tan(12) % 10";
+    fgets(str, sizeof(str), stdin);
     char *new_str = (char *)malloc((strlen(str) + 1) * sizeof(char));
     char *leks = (char *)malloc(40 * sizeof(char));
 

@@ -1,35 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <locale.h>
 
 int main()
 {
-    setlocale(LC_ALL, "russian");
-    double eps = 0.000001;
-    double pi = 3.1415926;
-    double sum = 0, x, pred, next;
-    int n;
-    printf("Введите значение в пределах: 0.1<=x<=0.8, х=");
-    scanf("%lf", &x);
-    if (x >= 0.1 && x <= 0.8)
-    {
-        n = 1;
-        pred = x;
-        next = 0;
+    int damkaXY, peshkaXY_1, peshkaXY_2;
 
-        while (fabs(pred - next) > eps)
+    printf("Enter damka coord xy : ");
+    scanf("%d", &damkaXY);
+
+    printf("Enter peshka 1 coord xy : ");
+    scanf("%d", &peshkaXY_1);
+
+    printf("Enter peshkal 2 coord xy : ");
+    scanf("%d", &peshkaXY_2);
+
+    int mod1 = abs(damkaXY - peshkaXY_1);
+    int mod2 = abs(damkaXY - peshkaXY_2);
+
+    if (damkaXY != peshkaXY_1 || damkaXY != peshkaXY_2)
+    {
+        if (mod1 % 9 == 0 || mod1 % 11 == 0)
         {
-            pred = next;
-            next = pow(x, n) * cos(n * pi / 3.0) / (double)n;
-            sum = sum + next;
-            n++;
+            printf("Peshka 1 destroyed \n");
         }
-        printf("Сумма ряда равна %.6lf\n", sum);
-        double check = -0.5 * log(1 - 2 * x * cos(pi / 3.0) + x * x);
-        printf(" Проверка функции %.6lf\n", check);
+
+        if (mod2 % 9 == 0 || mod2 % 11 == 0)
+        {
+            printf("Peshka 2 destroyed\n");
+        }
+        else
+        {
+            printf("No one is destroyed!\n");
+        }
     }
     else
-        printf("Данное значения не входит в диапозон \n");
+        printf("ERROR");
+
+    system("pause");
     return 0;
 }

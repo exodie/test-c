@@ -2,11 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-int getLineSize(char str[], int max);
-int findChar(char str[], char ptr[]);
-void show(FILE *f, int wallet, int type, int summa);
-// int takeOff(FILE *f, int value);
-// int put(FILE *f, int value);
+int find(char str[], char ptr[]);
+void read(FILE *f, char wallet[10], int type, int summa);
+void takeOff(FILE *f, int value, int summa);
+void put(FILE *f, int value);
+
+struct BanksInfo {
+    char wallet[10];
+    int type;
+    int money;
+};
 
 int find(char str[], char ptr[])
 {
@@ -18,77 +23,98 @@ int find(char str[], char ptr[])
         if (ptr[k] == '\0')
             return 1;
     }
+
     return 0;
 }
 
-// int get_line_size(char string[], int max)
-// {
-//     int cymbol;
-//     int length;
-//     for (length = 0; (cymbol = getchar()) != EOF && cymbol != '\n' && length < max - 1; length++)
-//     {
-//         string[length] = cymbol;
-//     }
-//     string[length] = '\0';
-//     return length;
-// }
-
-// int takeOff(FILE *f, int value) {
-//     f = fopen("4/banks.txt", "r+");
-
-//     if (f != NULL) {
-//         while (!feof(f)) {
-            
-//         }
-//     }
-// }
-
-void show(FILE *f, int wallet, int type, int summa)
+void takeOff(FILE *f, int value, int summa)
 {
-    char name[100] = "20002";
-    char money[100] = "Money: ";
-    char str[100];
-    char buffer[100];
+    f = fopen("4/banks.txt", "r+");
+    int result;
 
-    // printf("Name: ");
-    // get_line_size(name, 100);
+    if (f != NULL)
+    {
+        while (!feof(f))
+        {
+        }
+    }
+}
+
+void put(FILE *f, int value)
+{
+    f = fopen("4/banks.txt", "r+");
+    int result;
+
+    if (f != NULL)
+    {
+        while (!feof(f))
+        {
+
+        }
+    }
+}
+
+void read(FILE *f, char wallet[10], int type, int summa)
+{
+    char money[7] = "Money: ", *buffer2, *maga, *maga2, str[100], buffer[100];
+    int magaMod, result;
 
     if (f != NULL)
     {
         while (!feof(f))
         {
             fgets(str, 100, f);
-            if (find(str, name))
+            if (find(str, wallet))
             {
                 strcpy(buffer, str);
             }
         }
     }
-    // printf("%s", buffer);
 
-    char *buffer2, *maga, *maga2;
-    
-    buffer2 = strstr(buffer, "Money: ");
+    buffer2 = strstr(buffer, money);
 
-    if (buffer2 != NULL) {
-        maga = (char*)(buffer2+7);
+    if (buffer2 != NULL)
+    {
+        maga = (char *)(buffer2 + 7);
     }
 
     maga2 = strstr(maga, ", Date: 206122022");
 
     *maga2 = '\0';
 
-    int magaMod;
     magaMod = atoi(maga);
 
-    printf("%d", magaMod);
+    switch (type)
+    {
+    case 0:
+        // takeOff(f, magaMod, summa); // take off money from wallet
+        result = magaMod - summa;
+        *(buffer2 + 7) = result;
+        printf("Mod: %d\n", magaMod);
+        printf("Result: %d\n", result);
 
-    int result;
-    result = magaMod - summa;
+        // build string
+        // printf("Char: %d", magaMod); 
+        fprintf(f, "%d\n", result);
 
-    *(buffer2+7) = result;
+        fclose(f);
+        break;
 
-    printf("Result: %d", result);
+    case 1:
+        // put(f, summa);
+
+        result = magaMod + summa;
+        *(buffer2 + 7) = result;
+        printf("Mod: %d\n", magaMod);
+        printf("Result: %d\n", result);
+        fclose(f);
+        break;
+
+    default:
+        break;
+    }
+
+    printf("test maga buffer: %c", *(buffer2));
 
     fclose(f);
 }
@@ -97,18 +123,19 @@ int main()
 {
     FILE *f = fopen("4/banks.txt", "r");
 
-    int summa, type, wallet; /* 1 - положить; 0 - снять */
+    int summa, type;
+    char wallet[10]; /* 1 - положить; 0 - снять */
 
     printf("Input wallet: ");
-    scanf("%d", &wallet);
+    scanf("%s", wallet);
 
     printf("Input sum: ");
     scanf("%d", &summa);
 
-    printf("Input type: [0...1]: ");
+    printf("Input type: [0 - Take || 1 - Put]: ");
     scanf("%d", &type);
 
-    show(f, wallet, type, summa);
+    read(f, wallet, type, summa);
 
     return 0;
 }

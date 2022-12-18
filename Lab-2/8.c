@@ -1,37 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
-#include <locale.h>
+#define EPS 1e-4
+
+// Инициализация функции
+float recurs(float x, float a, float tempS, int n);
+
+// Реализация функции
+float recurs(float x, float a, float tempS, int n)
+{
+    float chlenPosled = (pow(a, 2 * n - 1)) / ((2 * n - 1) * pow(2 * x + a, 2 * n - 1));
+    tempS += chlenPosled;
+    if (fabs(chlenPosled) > EPS)
+    {
+        n++;
+        recurs(x, a, tempS, n);
+    }
+    else
+        return tempS;
+}
 
 int main()
 {
-    setlocale(LC_ALL, "russian");
-    double eps = 0.000001;
-    double pi = 3.1415926;
-    double sum = 0, x, pred, next;
-    int n;
-    printf("Введите значение в пределах: 0.1<=x<=0.8, х=");
-    scanf("%lf", &x);
-    if (x >= 0.1 && x <= 0.8)
-    {
-        n = 1;
-        pred = x;
-        next = 0;
+    int n = 1;
+    float S, x, a, tempS = 0;
+    float check;
 
-        while (fabs(pred - next) > eps)
-        {
-            pred = next;
-            next = pow(x, n) * cos(n * pi / 3.0) / (double)n;
-            sum = sum + next;
-            n++;
-        }
-        printf("Сумма ряда равна %.6lf\n", sum);
-        double check = -0.5 * log(1 - 2 * x * cos(pi / 3.0) + x * x);
-        printf(" Проверка функции %.6lf\n", check);
-    }
-    else
+    printf("Enter x: ");
+    scanf("%f", &x);
+    do
     {
-        printf("Данное значения не входит в диапозон \n");
-    }
+        printf("\nEnter a: ");
+        scanf("%f", &a);
+    } while (pow(a, 2) > pow(2 * x + a, 2));
+
+    S = log(x) + 2 * recurs(x, a, tempS, n);
+    printf("S = %f\n", S);
+    check = log(x + a);
+    printf("ln(%.3f + %.3f) = %f\n", x, a, check);
+
     return 0;
 }

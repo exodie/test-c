@@ -43,7 +43,7 @@ void creatBin(FILE *file, int number)
 
     for (int y = 0; y < number; y++)
     {
-        x = rand() % 10;
+        x = rand() % 10 * (-1);
         fwrite(&x, 1, sizeof(int), file);
     }
 }

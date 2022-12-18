@@ -8,7 +8,7 @@ int main()
 {
     int **arr, i, j, k, state;
 
-    arr = (int **)malloc(sizeof(int *) * S);
+    arr = (int **)malloc(sizeof(int*) * S);
 
     for (i = 0; i < S; i++)
     {
