@@ -4,32 +4,32 @@
 
 int main()
 {
-    char str[256];// = "2 + 5 % cos(0.5) / sin(1) + tan(12) % 10 + tan(12) % 10";
+    char str[256]; // example: "45 % cos(60) / sin(30) + tan(90) * 2 % 10";
     fgets(str, sizeof(str), stdin);
     char *new_str = (char *)malloc((strlen(str) + 1) * sizeof(char));
-    char *leks = (char *)malloc(40 * sizeof(char));
+    char *sym = (char *)malloc(40 * sizeof(char));
 
-    leks = strtok(str, " ");
+    sym = strtok(str, " ");
 
-    while (leks != NULL)
+    while (sym != NULL)
     {
-        if (*leks == '%')
+        if (*sym == '%')
         {
-            leks = "mod";
+            sym = "mod";
         }
 
-        if (leks[0] == 't')
+        if (sym[0] == 't')
         {
             int size = 0;
             char *num = (char *)malloc(size * sizeof(char));
 
-            for (int i = 0; i < strlen(leks) + 1; i++)
+            for (int i = 0; i < strlen(sym) + 1; i++)
             {
-                if (leks[i + 4] == ')')
+                if (sym[i + 4] == ')')
                     break;
 
                 num = (char *)realloc(num, ++size * sizeof(char));
-                num[i] = leks[i + 4];
+                num[i] = sym[i + 4];
             }
 
             char *sin_cos = (char *)malloc(15 + strlen(num) * 2);
@@ -39,16 +39,16 @@ int main()
             sin_cos = strcat(sin_cos, num);
             sin_cos = strcat(sin_cos, "))");
 
-            leks = sin_cos;
+            sym = sin_cos;
         }
 
-        new_str = strcat(new_str, leks);
+        new_str = strcat(new_str, sym);
         new_str = strcat(new_str, " "); // приписывает ct к s; возвращает s.
 
-        leks = strtok(NULL, " "); // выделяет из строки s лексему, ограниченную символами из ct.
+        sym = strtok(NULL, " "); // выделяет из строки s лексему, ограниченную символами из ct.
     }
 
-    printf("new_str = %s\n", new_str);
+    printf("Complete string = %s\n", new_str);
 
     return 0;
 }

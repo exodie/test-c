@@ -3,7 +3,7 @@
 
 int main()
 {
-    int **arr_test, x, y, elX, elY, i, j, sum = 0;
+    int **arr, x, y, elX, elY, i, j, sum = 0;
 
     printf("Input x: ");
     scanf("%d", &x);
@@ -12,17 +12,17 @@ int main()
     scanf("%d", &y);
 
     // create array
-    arr_test = (int**)malloc(sizeof(int*) * x);
+    arr = (int**)malloc(sizeof(int*) * x);
 
     for (i = 0; i < x; i++) {
-        arr_test[i] = (int *)malloc(sizeof(int) * y);
+        arr[i] = (int *)malloc(sizeof(int) * y);
     }
 
     // запись данных в массив
     for (i = 0; i < x; i++) {
         for (j = 0; j < y; j++) {
             printf("Input arr[i][j]: ");
-            scanf("%d", &arr_test[i][j]);
+            scanf("%d", &arr[i][j]);
         }
 
         printf("\n");
@@ -31,7 +31,7 @@ int main()
     // Вывод массива
     for (i = 0; i < x; i++) {
         for (j = 0; j < y; j++) {
-            printf(" %i", arr_test[i][j]);
+            printf(" %i", arr[i][j]);
         }
 
         printf("\n");
@@ -42,7 +42,7 @@ int main()
     // Условие в цикле
     for (i = 0; i < x; i++) {
         for (j = i + 1; j < y; j++) {
-            if (arr_test[i][j] == arr_test[j][i]) {
+            if (arr[i][j] == arr[j][i]) {
                 sum++;
             } else {
                 printf("Matrix are not symmetrical\n");

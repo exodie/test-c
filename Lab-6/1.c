@@ -4,27 +4,30 @@
 
 int main()
 {
-    int i, j = 0, k, a = 0;
+    int i, j = 0, count_char, count_word = 0;
     char str[1000];
 
-    scanf("%s", str); // принимаем текст
+    scanf("%s", str);
 
     for (i = 0; i < strlen(str); i++)
     {
-        if (str[i] != ' ' && str[i] != ',' && str[i] != '.' && str[i] != ':' && str[i] != '-') // находим слово(я взял что слова в тексте розделены только такими знаками
-            j = i;                                                                             // хочеш можно добавить свои)
+        if (str[i] != ' ' && str[i] != ',' && str[i] != '.' && str[i] != ':' && str[i] != '-')
+            j = i;
         else
         {
-            k = 0; // считает количество букв
+            count_char = 0;
             while (str[j] != ' ' && str[j] != ',' && str[j] != '.' && str[j] != ':' && str[j] != '-' && j != -1)
             {
-                k++;
+                count_char++;
                 j--;
             }
-            if (k >= 5) // если количество больше равно 5 - записываем
-                a++;
+
+            if (count_char >= 5)
+            {
+                count_word++;
+            }
         }
     }
 
-    printf("Answer: %d\n", a);
+    printf("Answer: %d\n", count_word);
 }

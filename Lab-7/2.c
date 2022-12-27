@@ -48,5 +48,8 @@ int main()
         }
     }
 
+    fclose(in);
+    fclose(out);
+
     return 0;
 }

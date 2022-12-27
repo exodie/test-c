@@ -8,11 +8,11 @@ int main()
 {
     int **arr, i, j, k, state;
 
-    arr = (int **)malloc(sizeof(int*) * S);
+    arr = (int **)malloc(S * sizeof(int*));
 
     for (i = 0; i < S; i++)
     {
-        arr[i] = (int *)malloc(sizeof(int) * C);
+        arr[i] = (int *)malloc(C * sizeof(int));
     }
 
     for (i = 0; i < S; i++)

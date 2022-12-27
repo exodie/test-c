@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define EL_A 10
-#define EL_B 15
+#define EL_A 60
+#define EL_B 85
 
 int * returnA() {
     int *a;
     a = (int*)malloc(EL_A * sizeof(int));
 
-    printf("a =");
+    printf("a = \n");
     for (int i = 0; i < EL_A; i++) {
         a[i] = rand() % 12;
-        printf(" %d", a[i]);
+        printf("%i\t", a[i]);
     }
 
     printf("\n\n");
@@ -27,12 +27,21 @@ int * returnB() {
     printf("b =");
     for (int i = 0; i < EL_B; i++) {
         b[i] = rand() % 13;
-        printf(" %d", b[i]);
+        printf("%i\t", b[i]);
     }
 
     printf("\n\n");
 
     return b;
+}
+
+void show(int *array, int elements) {
+    for (int i = 0; i < elements; i++)
+    {
+        printf("%i\t", array[i]);
+    }
+
+    printf("\n");
 }
 
 int main()
@@ -86,17 +95,11 @@ int main()
     a[a_idx] = maxB;
     b[b_idx] = maxA;
 
-    for (i = 0; i < EL_A; i++)
-    {
-        printf(" %i", a[i]);
-    }
+    printf("\n\nВывод A\n");
+    show(a, EL_A);
 
-    printf("\n\n");
-
-    for (j = 0; j < EL_B; j++)
-    {
-        printf(" %i", b[j]);
-    }
+    printf("\n\nВывод В\n");
+    show(b, EL_B);
 
     return 0;
 }

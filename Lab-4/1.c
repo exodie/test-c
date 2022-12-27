@@ -1,43 +1,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define a_value 5
-#define b_value 3
+#define a_count 30
+#define b_count 15
 
 int main(void)
 {
-    int i, j;
     double sum = 0.0, value = 0.0;
-    int A[a_value], B[b_value];
+    int A[a_count], B[b_count];
 
-    for (i = 0; i < a_value; i++) {
+    printf("Вывод массива А(30)");
+    for (int i = 0; i < a_count; i++)
+    {
         A[i] = rand() % 13;
         printf("%d ", A[i]);
     }
 
-    printf("\n\n");
+    printf("\n");
 
-    for (i = 0; i < b_value; i++) {
+    printf("Вывод массива В(15)");
+    for (int i = 0; i < b_count; i++)
+    {
         B[i] = rand() % 13;
         printf("%d ", B[i]);
     }
 
-    printf("\n\n");
+    printf("\n");
 
-    for (i = 0; i < 5; i++)
+    for (int i = 0; i < a_count; i++)
     {
-        for (j = 0; j < 5; j++)
+        for (int j = 0; j < b_count; j++)
         {
-            if (A[i] == B[j]) {
+            if (A[i] == B[j])
+            {
                 break;
-            } else if (j == 4) {
+            }
+            else if (j == b_count - 1)
+            {
                 sum += A[i];
                 value++;
             }
         }
     }
 
-    printf("%lf", sum / value);
+    printf("Среднее арифметическое: %lf", sum / value);
 
     return 0;
 }

@@ -27,7 +27,7 @@ int main()
     printf("a = %p\t*a = %d\tx = %p\t*x = %f\ty = %f\n", a, *a, x, *x, y);
 
     a = &b;
-    y = 12345, 6789;
+    y = 12345.6789;
 
     printf("x = %p\t*x = %f\ty = %f\n", x, *x, y);
 

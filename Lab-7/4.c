@@ -36,6 +36,7 @@ void takeOff(FILE *f, int value, int summa)
     {
         while (!feof(f))
         {
+
         }
     }
 }
@@ -49,7 +50,7 @@ void put(FILE *f, int value)
     {
         while (!feof(f))
         {
-
+            
         }
     }
 }

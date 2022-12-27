@@ -1,4 +1,3 @@
-#define _CRT_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -46,7 +45,7 @@ double *vector_Z(int n)
 }
 
 // расчет элементов числителя
-double *chisl1(double *X, double *Y, double *Z, int n, double value) /*, double Z[5]*/
+double *chisl1(double *X, double *Y, double *Z, int n, double value)
 {
     double sumX = 0, sumX1 = 0, sumY1 = 0;
 
@@ -124,8 +123,10 @@ int main()
     double *x = vector_X(n);
     double *y = vector_Y(n);
     double *z = vector_Z(n);
+
     znam_x(x, n, m);
     znam_y(y, n, v);
+
     double *chils = chisl1(x, y, z, n, value);
 
     R = sqrt(znam_x(x, n, m) * znam_y(y, n, v)); // знаменатель

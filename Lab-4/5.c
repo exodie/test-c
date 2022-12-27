@@ -1,12 +1,17 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
-// [0] - black, [1] - white
+// [0] - red, [1] - blue, [2] - green
 
 int main()
 {
-    int ***arr, m = 7, n = 3, p = 3, i, j, k, state = 0;
+    /*
+        m = value
+        n = rows
+        p = columns
+    */
+    int ***arr, m, n, p, i, j, k, state = 0;
+    scanf("%d%d%d", &m, &n, &p);
 
     arr = (int ***)malloc(m * sizeof(int **));
 
@@ -26,7 +31,7 @@ int main()
         {
             for (k = 0; k < p; k++)
             {
-                arr[i][j][k] = rand() % 2;
+                arr[i][j][k] = rand() % 3;
 
                 printf(" %i", arr[i][j][k]);
             }
@@ -44,9 +49,7 @@ int main()
     for (i = 0; i < m; i++) {
         for (j = 0; j < n; j++) {
             for (k = 0; k < p; k++) {
-                if (arr[i][j][k] == 1) {
-                    value++;
-                }
+                
             }
         }
     }

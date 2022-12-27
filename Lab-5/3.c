@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <math.h>
 
+/*
+    * a - value
+    * b - value
+    * n - count
+    * *f - function
+*/
 double Integral(double a, double b, int n, double *f)
 {
     double integ = 0;
@@ -32,35 +38,39 @@ double Integral(double a, double b, int n, double *f)
     return integ;
 }
 
-double *Func1(double a, double b, int n)
+double *setTask(int type, double a, double b, int n)
 {
     double *Y = (double *)malloc(n * sizeof(double));
-    double delta = (b - a) / (double)n;
-    for (int i = 0; i < n; i++)
+    double delt = (b - a) / (double)n;
+
+    switch (type)
     {
-        Y[i] = (2 * (a + i * delta) * (pow(((a + i * delta)), 2) + 1));
+    case 1:
+        for (int i = 0; i < n; i++)
+        {
+            Y[i] = (2 * (a + i * delt) * (pow(((a + i * delt)), 2) + 1));
+        }
+        break;
+
+    case 2:
+        for (int i = 0; i < n; i++)
+        {
+            Y[i] = (exp(2 * (a + i * delt)) / 2 * (a + i * delt));
+        }
+        break;
+
+    default:
+        break;
     }
 
     return Y;
-}
-
-double *Func2(double a, double b, int n)
-{
-    double *Y = (double *)malloc(n * sizeof(double));
-
-    double delta = (b - a) / n;
-    for (int i = 0; i < n; i++)
-    {
-        Y[i] = (exp(2 * (a + i * delta)) / 2 * (a + i * delta)); 
-    }
-
-    return Y;
-}
+};
 
 int main()
 {
     int N = 30, j, m;
-    printf("%lf \n", Integral(4, -1, N, Func1(4, -1, N)));
-    printf("%lf \n", Integral(3.5, 0.5, N, Func2(3.5, 0.5, N)));
+    printf("%lf \n", Integral(4, -1, N, setTask(1, 4, -1, N)));       // firstFc(4, -1, N)
+    printf("%lf \n", Integral(3.5, 0.5, N, setTask(2, 3.5, 0.5, N))); // lastFc(3.5, 0.5, N)
+
     return 0;
 }
